@@ -1,0 +1,195 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+/* 头部样式 */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #718096;
+    margin-bottom: 20px;
+}
+
+/* 功能特点 */
+.features {
+    margin-bottom: 40px;
+}
+
+.features h2 {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #4f46e5;
+    padding-bottom: 8px;
+}
+
+.features ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.features li {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    color: #4a5568;
+}
+
+.feature-item {
+    font-weight: bold;
+    color: #4f46e5;
+    margin-right: 8px;
+}
+
+/* 演示区域 */
+.demo-area {
+    margin-bottom: 40px;
+}
+
+.demo-area h2 {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #4f46e5;
+    padding-bottom: 8px;
+}
+
+.demo-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.color-picker, .counter {
+    background-color: #f8fafc;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.color-picker h3, .counter h3 {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin-bottom: 20px;
+}
+
+#counter-btn {
+    padding: 12px 24px;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#counter-btn:hover {
+    background-color: #4338ca;
+}
+
+#counter-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4f46e5;
+    margin-top: 15px;
+}
+
+/* 部署状态 */
+.status {
+    margin-bottom: 40px;
+}
+
+.status h2 {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #4f46e5;
+    padding-bottom: 8px;
+}
+
+#deployment-status {
+    background-color: #f8fafc;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+#deployment-status p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+#deployment-status strong {
+    color: #2d3748;
+    font-weight: bold;
+}
+
+#access-url {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#access-url:hover {
+    text-decoration: underline;
+}
+
+/* 底部样式 */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    color: #718096;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .demo-box {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 20px;
+    }
+}
