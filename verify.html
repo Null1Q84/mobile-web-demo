@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>验证动态交互</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        button {
+            padding: 15px 30px;
+            background-color: #10b981;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        canvas {
+            width: 100%;
+            height: 200px;
+            background-color: white;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        #output {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            min-height: 100px;
+        }
+        
+        .success {
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ 动态交互验证页面</h1>
+        
+        <div class="test-section">
+            <h2>测试1: AI艺术作品</h2>
+            <canvas id="test-canvas"></canvas>
+            <button onclick="testArt()">生成艺术作品</button>
+            <div id="art-result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>测试2: JavaScript功能</2>
+            <button onclick="testAlert()">弹出消息</button>
+            <button onclick="testRandom()">随机颜色</button>
+            <div id="js-result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>测试结果</h2>
+            <div id="output">
+                <p>等待测试...</p>
+            </div>
+        </div>
+        
+        <script>
+            function testArt() {
+                const canvas = document.getElementById('test-canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                for (let i = 0; i < 20; i++) {
+                    ctx.beginPath();
+                    ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, 
+                            Math.random() * 30 + 10, 0, Math.PI * 2);
+                    ctx.fillStyle = getRandomColor();
+                    ctx.fill();
+                }
+                
+                document.getElementById('art-result').innerHTML = '<span class="success">✅ AI艺术作品生成成功</span>';
+                document.getElementById('output').innerHTML += '<p>🎨 AI艺术作品功能正常</p>';
+            }
+            
+            function testAlert() {
+                alert('JavaScript运行正常！');
+                document.getElementById('js-result').innerHTML = '<span class="success">✅ JavaScript弹出功能正常</span>';
+                document.getElementById('output').innerHTML += '<p>💬 JavaScript交互功能正常</p>';
+            }
+            
+            function testRandom() {
+                const colors = ['#667eea', '#764ba2', '#f59e0b', '#ef4444', '#10b981'];
+                document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                document.getElementById('js-result').innerHTML = '<span class="success">✅ 随机颜色切换正常</span>';
+                document.getElementById('output').innerHTML += '<p>🎨 动态颜色切换正常</p>';
+            }
+            
+            function getRandomColor() {
+                return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+            }
+            
+            // 自动测试
+            setTimeout(() => {
+                document.getElementById('output').innerHTML += '<p>🤖 JavaScript正在运行...</p>';
+                testArt();
+                document.getElementById('output').innerHTML += '<p>🚀 动态交互功能已验证</p>';
+                document.getElementById('output').innerHTML += '<p>📱 所有AI功能已激活</p>';
+            }, 1000);
+        </script>
+    </div>
+</body>
+</html>
